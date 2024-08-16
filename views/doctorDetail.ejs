@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctors List</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f2f5;
+        color: #333;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      h1 {
+        color: #00796b;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .filter-buttons {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .filter-buttons button {
+        background-color: #00796b;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin: 0 5px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .filter-buttons button:hover {
+        background-color: #005c49;
+      }
+      .doctor-list {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .doctor-item {
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      .doctor-item:last-child {
+        border-bottom: none;
+      }
+      .doctor-name {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #00796b;
+      }
+      .doctor-specialization {
+        font-size: 1rem;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Doctors List</h1>
+      <div class="filter-buttons">
+        <button onclick="window.location.href='/doctor/detail?filter=All'">
+          All
+        </button>
+        <button
+          onclick="window.location.href='/doctor/detail?filter=Spesialis-Mata'"
+        >
+          Spesialis Mata
+        </button>
+        <button
+          onclick="window.location.href='/doctor/detail?filter=Spesialis-Jantung'"
+        >
+          Spesialis Jantung
+        </button>
+        <button
+          onclick="window.location.href='/doctor/detail?filter=Spesialis-Ginjal'"
+        >
+          Spesialis Ginjal
+        </button>
+        <button
+          onclick="window.location.href='/doctor/detail?filter=Spesialis-Anak'"
+        >
+          Spesialis Anak
+        </button>
+      </div>
+
+      <form action="">
+        <input type="search" name="search" />
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="doctor-list" id="doctorList">
+        <% doctors.forEach(el => { %>
+        <div
+          class="doctor-item"
+          data-specialization="<%= el.UserSpecializations  %>"
+        >
+          <div class="doctor-name"><%= el.username %></div>
+          <div class="doctor-specialization"><%= el.UserSpecializations %></div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

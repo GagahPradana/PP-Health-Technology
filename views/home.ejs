@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Technology</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f2f5;
+        color: #333;
+      }
+      header {
+        background-color: #00796b;
+        color: #fff;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      header img.logo {
+        max-width: 50px;
+        height: auto;
+      }
+      .nav-buttons {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+      }
+      .nav-buttons a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: #004d40;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      .nav-buttons a:hover {
+        background-color: #003d33;
+        transform: translateY(-2px);
+      }
+      .logout-button {
+        background-color: #d32f2f;
+      }
+      .logout-button:hover {
+        background-color: #b71c1c;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      .section {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        margin: 20px 0;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+      .section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      .section img {
+        max-width: 100px;
+        margin-right: 20px;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+      }
+      .section h2 {
+        margin-top: 0;
+        color: #00796b;
+        font-size: 2rem;
+        font-weight: 500;
+      }
+      .section p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        margin: 15px 0 0;
+      }
+      .section.visible img {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <img
+          src="https://static.vecteezy.com/system/resources/thumbnails/017/177/954/small/round-medical-cross-symbol-on-transparent-background-free-png.png"
+          alt="Hospital Logo"
+          class="logo"
+        />
+        Health Technology
+      </h1>
+      <div class="nav-buttons">
+        <a href="/profile/<%= userId %>">Profile</a>
+        <a href="/logout" class="logout-button">Logout</a>
+      </div>
+    </header>
+    <div class="container">
+      <a href="/doctor/detail" style="text-decoration: none; color: inherit">
+        <div class="section">
+          <img
+            src="https://w7.pngwing.com/pngs/104/498/png-transparent-physician-lia-doctor-of-medicine-doctors-and-nurses-miscellaneous-photography-service.png"
+            alt="Doctors"
+          />
+          <div>
+            <h2>Doctors</h2>
+            <p>
+              Discover our team of qualified healthcare professionals who are
+              dedicated to providing you with the best care possible.
+            </p>
+          </div>
+        </div>
+      </a>
+      <a href="/appointment" style="text-decoration: none; color: inherit">
+        <div class="section">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwWKhSN_R6jLnesyckAJA2JQNYwujIZi8Hzg&s"
+            alt="Appointments"
+          />
+          <div>
+            <h2>Appointments</h2>
+            <p>
+              Easily book your appointments online and manage your health
+              journey efficiently.
+            </p>
+          </div>
+        </div>
+      </a>
+      <a
+        href="/doctor/specialization"
+        style="text-decoration: none; color: inherit"
+      >
+        <div class="section">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGHXJWcpLbk4PfvF9FlULEMNcjonnfP37Pfw&s"
+            alt="Doctor Specialization"
+          />
+          <div>
+            <h2>Doctor Specialization</h2>
+            <p>
+              Our specialists are highly trained in various medical fields,
+              ensuring you receive the best care tailored to your needs.
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <script>
+      document.addEventListener("scroll", function () {
+        var sections = document.querySelectorAll(".section");
+        var windowHeight = window.innerHeight;
+
+        sections.forEach(function (section) {
+          var sectionTop = section.getBoundingClientRect().top;
+
+          if (sectionTop < windowHeight - 100) {
+            section.classList.add("visible");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

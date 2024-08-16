@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Appointment</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      h1 {
+        font-size: 2rem;
+        color: #00796b;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      form {
+        max-width: 400px;
+        width: 100%;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        text-align: left;
+      }
+      label {
+        font-weight: 500;
+        margin-bottom: 8px;
+        display: block;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+      }
+      button {
+        width: 100%;
+        background-color: #6a5acd;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #5a4cbf;
+      }
+      p {
+        color: #d32f2f;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Edit Appointment</h1>
+      <% if (errors) { %>
+      <p><%= errors %></p>
+      <% } %>
+      <form action="/appointment/edit/<%= appointment.id %>" method="post">
+        <div>
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value="<%= appointment.name %>"
+          />
+        </div>
+        <div>
+          <label for="dokter">Doctor Name</label>
+          <select id="dokter" name="dokter">
+            <option disabled>Select Doctor</option>
+            <option value="Dr. Alice Smith" <%= appointment.dokter === 'Dr. Alice Smith' ? 'selected' : '' %>>
+              Dr. Alice Smith
+            </option>
+            <option value="Dr. Bob Johnson" <%= appointment.dokter === 'Dr. Bob Johnson' ? 'selected' : '' %>>
+              Dr. Bob Johnson
+            </option>
+            <option value="Dr. Charlie Williams" <%= appointment.dokter === 'Dr. Charlie Williams' ? 'selected' : '' %>>
+              Dr. Charlie Williams
+            </option>
+          </select>
+        </div>
+        <div>
+          <label for="appointment-date">Appointment Date</label>
+          <input
+            type="date"
+            id="appointment-date"
+            name="appointmentDate"
+            value="<%= appointment.formatDate %>"
+          />
+        </div>
+        <button type="submit">Update Appointment</button>
+      </form>
+    </div>
+  </body>
+</html>

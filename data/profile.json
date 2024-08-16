@@ -1,0 +1,12 @@
+[
+  {
+    "fullName": "John Doe",
+    "phoneNumber": "0898234567890",
+    "address": "123 Main St, Anytown, USA"
+  },
+  {
+    "fullName": "Jane Smith",
+    "phoneNumber": "0898987654321",
+    "address": "456 Elm St, Othertown, USA"
+  }
+]

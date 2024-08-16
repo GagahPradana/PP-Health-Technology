@@ -1,0 +1,30 @@
+[
+  {
+    "UserId": 1,
+    "SpecializationId": 1
+  },
+  {
+    "UserId": 1,
+    "SpecializationId": 2
+  },
+  {
+    "UserId": 1,
+    "SpecializationId": 3
+  },
+  {
+    "UserId": 3,
+    "SpecializationId": 2
+  },
+  {
+    "UserId": 3,
+    "SpecializationId": 1
+  },
+  {
+    "UserId": 5,
+    "SpecializationId": 1
+  },
+  {
+    "UserId": 5,
+    "SpecializationId": 4
+  }
+]

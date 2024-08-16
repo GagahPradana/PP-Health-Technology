@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Spesialisasi</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f8ff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: linear-gradient(to right, #ffafbd, #ffc3a0);
+      }
+      .container {
+        background-color: #ffffffdd;
+        padding: 20px 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+      }
+      h1 {
+        color: #ff6f61;
+        margin-bottom: 20px;
+        font-size: 32px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        background-color: #ffebcd;
+        margin: 10px 0;
+        padding: 20px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+      li:hover {
+        transform: scale(1.05);
+        background-color: #ffe4b5;
+      }
+      li strong {
+        color: #ff4500;
+      }
+      .price {
+        color: #008080;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .price::before {
+        content: "💰 ";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Specialization List</h1>
+      <ul>
+        <% data.forEach(el => { %>
+        <li>
+          <span><strong><%= el.specializationName %></strong></span>
+          <span class="price"> <%=formatRupiah(el.biaya) %> </span>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </body>
+</html>

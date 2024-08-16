@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "specializationName": "Spesialis Mata",
+    "biaya": 1200000
+  },
+  {
+    "id": 2,
+    "specializationName": "Spesialis Jantung",
+    "biaya": 2000000
+  },
+  {
+    "id": 3,
+    "specializationName": "Spesialis Ginjal",
+    "biaya": 1500000
+  },
+  {
+    "id": 4,
+    "specializationName": "Spesialis Anak",
+    "biaya": 800000
+  }
+]
